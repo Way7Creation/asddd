@@ -13,7 +13,7 @@ window.__APP_INITIALIZED__ = true;
 
 // ===== ИМПОРТЫ МОДУЛЕЙ =====
 import { showToast } from './utils.js';
-import { productsManager } from './ProductsManagerFixed.js';
+import { productsManager } from './ProductsManager.js';
 import { addToCart, clearCart, removeFromCart } from './cart.js';
 import { createSpecification } from './specification.js';
 import { cartBadge } from './cart-badge.js';

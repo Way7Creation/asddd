@@ -1,4 +1,4 @@
-import { productsManager } from "./ProductsManagerFixed.js";
+import { productsManager } from './ProductsManager.js';
 
 export function sortProducts(column) {
     if (window.sortColumn === column) {

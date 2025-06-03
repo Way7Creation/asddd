@@ -1,5 +1,5 @@
 import { renderProductsTable } from "./renderProducts.js";
-import { productsManager } from "./ProductsManagerFixed.js";
+import { productsManager } from './ProductsManager.js';
 
 export function updatePaginationDisplay() {
     const total = Math.ceil(window.totalProducts / window.itemsPerPage);

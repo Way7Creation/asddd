@@ -79,3 +79,43 @@
             <div class="cart-container"></div>
         </div>
     </div>
+    
+    <!-- Скрипты для страницы товаров -->
+<script type="module">
+import { productsManager } from '/assets/js/ProductsManager.js';
+import { showToast } from '/assets/js/utils.js';
+import { cartBadge } from '/assets/js/cart-badge.js';
+
+// Глобальные переменные для совместимости
+window.productsData = [];
+window.currentPage = 1;
+window.itemsPerPage = 20;
+window.totalProducts = 0;
+window.sortColumn = 'relevance';
+window.sortDirection = 'asc';
+window.appliedFilters = {};
+
+// Инициализация
+document.addEventListener('DOMContentLoaded', async function() {
+    console.log('🚀 Initializing shop page...');
+    
+    try {
+        // Инициализируем корзину
+        cartBadge.init();
+        
+        // Инициализируем менеджер товаров
+        await productsManager.init();
+        
+        // Экспортируем функции глобально для обратной совместимости
+        window.fetchProducts = () => productsManager.fetchProducts();
+        window.sortProducts = (column) => productsManager.sortProducts(column);
+        window.loadPage = (page) => productsManager.changePage(page);
+        
+        console.log('✅ Shop page ready');
+        
+    } catch (error) {
+        console.error('❌ Initialization error:', error);
+        showToast('Ошибка загрузки страницы', true);
+    }
+});
+</script>

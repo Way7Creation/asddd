@@ -1,5 +1,5 @@
 // Замени первую строку в filters.js:
-import { productsManager } from "./ProductsManagerFixed.js";
+import { productsManager } from "./ProductsManager.js";
 import { renderProductsTable } from "./renderProducts.js";
 
 export function filterByBrandOrSeries(key, value) {

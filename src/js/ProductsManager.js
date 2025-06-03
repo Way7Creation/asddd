@@ -538,10 +538,20 @@ export class ProductsManager {
     handleFilterChange(filterName, value) {
         console.log(`🎯 Filter changed: ${filterName} = ${value}`);
         
+        // Маппинг имен фильтров на параметры API
+        const filterMap = {
+            'brandFilter': 'brand_name',
+            'seriesFilter': 'series_name',
+            'categoryFilter': 'category_id',
+            'stockFilter': 'in_stock'
+        };
+        
+        const apiParam = filterMap[filterName] || filterName;
+        
         if (value) {
-            this.filters[filterName] = value;
+            this.filters[apiParam] = value;
         } else {
-            delete this.filters[filterName];
+            delete this.filters[apiParam];
         }
         
         this.currentPage = 1;
